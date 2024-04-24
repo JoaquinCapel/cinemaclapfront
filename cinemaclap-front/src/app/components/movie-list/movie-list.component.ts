@@ -39,4 +39,29 @@ export class MovieListComponent implements OnInit {
   sortByLanguage = () => {
     this.movies.sort((a, b) => a.original_language.localeCompare(b.original_language));
   }
+
+  // crea función para obtener getNowPlayingMovies
+  getNowPlayingMovies = () => {
+    this.movieService.getNowPlayingMovies().pipe(
+      catchError(error => {
+        console.error('Error fetching movies', error);
+        return throwError(error);
+      })
+    ).subscribe((data: any) => {
+      console.log(data);
+      this.movies = data.results;
+    });
+  }
+
+  getUpcomingMovies = () => {
+    this.movieService.getUpcomingMovies().pipe(
+      catchError(error => {
+        console.error('Error fetching movies', error);
+        return throwError(error);
+      })
+    ).subscribe((data: any) => {
+      console.log(data);
+      this.movies = data.results;
+    });
+  }
 }

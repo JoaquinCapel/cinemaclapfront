@@ -15,6 +15,18 @@ export class MovieService {
     return this.http.get(`${this.apiUrl}/movie/popular?api_key=${this.apiKey}`);
   }
 
+  getTopRatedMovies(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/top_rated?api_key=${this.apiKey}`);
+  }
+
+  getNowPlayingMovies(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/now_playing?api_key=${this.apiKey}`);
+  }
+
+  getUpcomingMovies(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/upcoming?api_key=${this.apiKey}`);
+  }
+
   getMovieGenres(): Observable<any> {
     return this.http.get(`${this.apiUrl}/genre/movie/list?api_key=${this.apiKey}`);
   }
