@@ -19,7 +19,6 @@ export class MovieService {
     return this.http.get(`${this.apiUrl}/genre/movie/list?api_key=${this.apiKey}`);
   }
 
-  // quiero hacer una llamada a la API para obtener los detalles de una película
   getMovieDetails(movieId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}`);
   }
