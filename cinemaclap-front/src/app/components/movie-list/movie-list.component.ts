@@ -57,7 +57,6 @@ export class MovieListComponent implements OnInit {
     this.movies.sort((a, b) => a.original_language.localeCompare(b.original_language));
   }
 
-  // crea función para obtener getNowPlayingMovies
   getNowPlayingMovies = () => {
     this.movieService.getNowPlayingMovies().pipe(
       catchError(error => {
