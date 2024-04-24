@@ -13,19 +13,36 @@ import { throwError } from 'rxjs';
 })
 export class MovieListComponent implements OnInit {
   movies: any[] = [];
+  page = 1;
 
   constructor(private movieService: MovieService) { }
 
-  ngOnInit(): void {
-    this.movieService.getPopularMovies().pipe(
-      catchError(error => {
+  loadMovies() {
+    this.movieService.getPopularMovies(this.page).pipe(
+      catchError((error: any) => {
         console.error('Error fetching movies', error);
-        return throwError(error);
+        return throwError(() => error);
       })
     ).subscribe((data: any) => {
-      console.log(data);  // Log the data to see what's returned
+      console.log(data);
       this.movies = data.results;
     });
+  }
+
+  nextPage() {
+    this.page++;
+    this.loadMovies();
+  }
+
+  previousPage() {
+    if (this.page > 1) {
+      this.page--;
+      this.loadMovies();
+    }
+  }
+
+  ngOnInit(): void {
+    this.loadMovies();
   }
 
   sortByTitle = () => {
