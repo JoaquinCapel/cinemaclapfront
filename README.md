@@ -7,7 +7,7 @@ This application created with Angular allows users interested in watching movies
 ## ☁️ Interaction with the "cinemaclapback" API (In progress)
 
 
-## 📋 Requisitos
+## 📋 Requirements
 
 - Node.js and npm installed on your system. You can download them from [nodejs.org](https://nodejs.org/).
 - Angular CLI installed globally. You can install it with the following command:
