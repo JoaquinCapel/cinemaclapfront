@@ -29,12 +29,9 @@ cd cinemaclapfront
 ```
 
 **✔️ Step 3:** Install the dependencies:
-
-:
 ```bash
 npm install
 ```
-
 
 ## ▶️ Execution
 Run the application with the following command:
