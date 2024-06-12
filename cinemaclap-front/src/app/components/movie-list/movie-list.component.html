@@ -1,52 +1,57 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <iframe class="rounded border" width="100%" height="500" src="https://www.youtube.com/embed/RlbR5N6veqw?si=eKVZ9vXgF85M27jz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    </div>
-  </div>
-
-
-<h1 class="text-center text-white mt-4">Watch & Talk Events</h1>
-
-<!-- sort buttons -->
-<div class="container">
-  <div class="row text-center mb-4 mt-4">
-    <div class="col-md-4">
-      <button class="btn btn-danger btn-block" (click)="sortByTitle()">Title</button>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-danger btn-block" (click)="sortByGenre()">Genre</button>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-danger btn-block" (click)="sortByLanguage()">Language</button>
-    </div>
-  </div>
-  <div class="row text-center mb-4 mt-4">
-    <div class="col-md-4">
-      <button class="btn btn-danger btn-block" (click)="getUpcomingMovies()">Upcoming</button>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-danger btn-block" (click)="getNowPlayingMovies()">Now In Theaters</button>
+      <iframe class="rounded border" class="img-fluid" width="100%" height="500"
+        src="https://www.youtube.com/embed/RlbR5N6veqw?si=eKVZ9vXgF85M27jz" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </div>
   </div>
 
-  <button (click)="previousPage()">Previous Page</button>
-  <button (click)="nextPage()">Next Page</button>
-<!-- Movie cards -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let movie of movies">
-      <div class="card mb-4">
-        <img class="rounded-top border-3 border-danger border-bottom" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
-        <div class="card-body" style="max-height: 15rem; overflow: hidden;">
-          <h5 class="card-title text-danger">{{ movie.title }}</h5>
-          <p>{{ movie.genre_ids }}</p>
-          <p>Language: {{movie.original_language}}</p>
-          <p class="text-secondary">{{ movie.overview }}</p>
+
+  <h1 class="text-center text-white mt-4">Watch & Talk Events</h1>
+
+  <!-- sort buttons -->
+  <div class="container-fluid">
+    <div class="row justify-content-center mb-4 mt-4">
+      <div class="col-4 col-lg-2">
+        <button class="btn btn-danger btn-block mb-4" (click)="sortByTitle()">Title</button>
+      </div>
+      <div class="col-4 col-lg-2">
+        <button class="btn btn-danger btn-block" (click)="sortByGenre()">Genre</button>
+      </div>
+      <div class="col-4 col-lg-2">
+        <button class="btn btn-danger btn-block" (click)="sortByLanguage()">Language</button>
+      </div>
+      <div class="col-6 col-lg-2">
+        <button class="btn btn-danger btn-block" (click)="getUpcomingMovies()">Upcoming</button>
+      </div>
+      <div class="col-6 col-lg-2">
+        <button class="btn btn-danger btn-block" (click)="getNowPlayingMovies()">Now In Theaters</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-light text-danger mb-2 me-2" (click)="previousPage()">Previous Page</button>
+  <button class="btn btn-secondary mb-2" (click)="nextPage()">Next Page</button>
+  <!-- Movie cards -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let movie of movies">
+        <div class="card mb-4">
+          <img class="rounded-top border-3 border-danger border-bottom"
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
+          <div class="card-body" style="max-height: 15rem; overflow: hidden;">
+            <h5 class="card-title text-danger">{{ movie.title }}</h5>
+            <p>{{ movie.genre_ids }}</p>
+            <p>Language: {{movie.original_language}}</p>
+            <p class="text-secondary">{{ movie.overview }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<button (click)="previousPage()">Previous Page</button>
-<button (click)="nextPage()">Next Page</button>
+  <button class="btn btn-light text-danger me-2" (click)="previousPage()">Previous Page</button>
+  <button class="btn btn-secondary" (click)="nextPage()">Next Page</button>
+</div>
